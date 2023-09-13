@@ -1,20 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { logOut } from 'redux/auth/operations';
-import { selectUser } from 'redux/auth/selectors';
+import AuthNav from 'components/AuthNav';
+import UserMenu from 'components/UserMenu';
+import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink, Outlet } from 'react-router-dom';
+import { selectIsLogin } from 'redux/selectors';
 
 export const Header = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const isLogin = useSelector(selectIsLogin);
   return (
     <>
       <header>
-        <p> Welcome {user.name}</p>
-        <button onClick={() => dispatch(logOut())}>LogOut</button>
         <nav>
           <NavLink to="/">Home</NavLink>
+          {isLogin ? <UserMenu /> : <AuthNav />}
         </nav>
       </header>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
