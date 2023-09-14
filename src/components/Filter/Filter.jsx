@@ -1,3 +1,4 @@
+import { ContactsList } from 'components/ContactsList/ContactsList';
 import { useDispatch } from 'react-redux';
 import { addFilter } from 'redux/filterSlice';
 
@@ -15,6 +16,7 @@ export const Filter = () => {
         placeholder="search"
         onChange={handleInputChange}
       />
+      <ContactsList />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   return (
-    <div>
+    <div className="usermenu-container">
       <Link to="/contacts">PhoneBook</Link>
       <p> Welcome {user.name}</p>
       <button className="login-button" onClick={() => dispatch(logOut())}>

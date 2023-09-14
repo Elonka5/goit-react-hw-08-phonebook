@@ -9,10 +9,10 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { Header } from './Header/Header';
 
-const Home = lazy(() => import('components/pages/Home'));
-const Login = lazy(() => import('components/pages/Login'));
-const Register = lazy(() => import('components/pages/Register'));
-const Contacts = lazy(() => import('components/pages/Contacts'));
+const Home = lazy(() => import('pages/Home'));
+const Login = lazy(() => import('pages/Login'));
+const Register = lazy(() => import('pages/Register'));
+const Contacts = lazy(() => import('pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
