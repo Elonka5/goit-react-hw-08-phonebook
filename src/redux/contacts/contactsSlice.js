@@ -3,7 +3,7 @@ import {
   fetchContacts,
   addContacts,
   deleteContact,
-} from 'components/services/contactsAPI';
+} from 'redux/contacts/contactsAPI';
 
 export const contactsSlice = createSlice({
   name: 'contacts',

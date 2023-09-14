@@ -1,20 +1,21 @@
-import AuthNav from 'components/AuthNav';
+import AuthNav from 'components/AuthNav/AuthNav';
 import UserMenu from 'components/UserMenu';
 import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { selectIsLogin } from 'redux/selectors';
+import { HeaderStyled, NavLinkStyled } from './HeaderStyled';
 
 export const Header = () => {
   const isLogin = useSelector(selectIsLogin);
   return (
     <>
-      <header>
+      <HeaderStyled>
         <nav>
-          <NavLink to="/">Home</NavLink>
-          {isLogin ? <UserMenu /> : <AuthNav />}
+          <NavLinkStyled to="/">Home</NavLinkStyled>
         </nav>
-      </header>
+        {isLogin ? <UserMenu /> : <AuthNav />}
+      </HeaderStyled>
       <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
       </Suspense>

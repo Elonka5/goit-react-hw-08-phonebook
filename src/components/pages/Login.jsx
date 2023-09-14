@@ -15,11 +15,26 @@ const Login = () => {
     evt.target.reset();
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="email" type="text" />
-      <input name="password" type="text" />
-      <button type="submit">Login</button>
-    </form>
+    <div className="container-form">
+      <div className="heading">Sign In</div>
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          className="input"
+          name="email"
+          type="text"
+          placeholder="E-mail"
+        />
+        <input
+          className="input"
+          name="password"
+          type="text"
+          placeholder="Password"
+        />
+        <button className="login-button" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 
